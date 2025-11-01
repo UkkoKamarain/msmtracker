@@ -1,0 +1,47 @@
+{
+"basedata":[
+    {"elements":[
+        {"nameE":"Earth","imgFilePath":""},
+        {"nameE":"Water","imgFilePath":""},
+        {"nameE":"Cold","imgFilePath":""},
+        {"nameE":"Plant","imgFilePath":""},
+        {"nameE":"Air","imgFilePath":""},
+        {"nameE":"Fire","imgFilePath":""}
+    ]
+    },
+    {"islands":[
+        {"nameI":"Plant","hatcherTier":0,"seasonal":false,
+            "elementsI":["Plant","Water","Cold","Earth"]},
+        {"nameI":"Cold","hatcherTier":0,"seasonal":false,
+            "elementsI":["Air","Plant","Water","Cold"]},
+        {"nameI":"Air","hatcherTier":0,"seasonal":false,
+            "elementsI":["Air","Earth","Water","Cold"]},
+        {"nameI":"Water","hatcherTier":0,"seasonal":false,
+            "elementsI":["Air","Plant","Earth","Water"]},
+        {"nameI":"Earth","hatcherTier":0,"seasonal":false,
+            "elementsI":["Air","Earth","Cold","Plant"]},
+        {"nameI":"Haven","hatcherTier":0,"seasonal":false,
+            "elementsI":["Air","Plant","Earth","Fire"]},
+        {"nameI":"Oasis","hatcherTier":0,"seasonal":false,
+            "elementsI":["Air","Water","Cold","Fire"]}
+    ]
+    },
+    {"monsters":[
+        {"nameM":"Noggin","description":"Noggin + Quad","birthTimes":[5,3,4,3],"islandsM":["Plant","Air","Water","Earth","Haven"],"elementsM":["Earth"]},
+        {"nameM":"Mammott","description":"Mammott + Quad","birthTimes":[120,90,108,78],"islandsM":["Plant","Cold","Air","Earth","Oasis"],"elementsM":["Cold"]},
+        {"nameM":"Toe Jammer","description":"Toe Jammer + Quad","birthTimes":[60,45,54,39],"islandsM":["Plant","Cold","Air","Water","Oasis"],"elementsM":["Water"]},
+        {"nameM":"Potbelly","description":"Potbelly + Quad","birthTimes":[7200,5400,6400,4680],"islandsM":["Plant","Cold","Water","Earth","Haven"],"elementsM":["Plant"]},
+        {"nameM":"Tweedle","description":"Tweedle + Quad","birthTimes":[14400,10800,12960,9360],"islandsM":["Cold","Air","Water","Earth","Haven","Oasis"],"elementsM":["Air"]},
+        {"nameM":"Kayna","description":"Kayna + Quad","birthTimes":[25200,18900,22680, 16380],"islandsM":["Haven","Oasis"],"elementsM":["Fire"]},
+        {"nameM":"Fwog","description":"Noggin + Toe Jammer","birthTimes":[1800,1350,1620,1170],"islandsM":["Plant","Air","Water"],"elementsM":["Water","Earth"]},
+        {"nameM":"Drumpler","description":"Mammott + Noggin","birthTimes":[1800,1350,1620,1170],"islandsM":["Plant","Air","Earth"],"elementsM":["Cold","Earth"]},
+        {"nameM":"Maw","description":"Mammott + Toe Jammer","birthTimes":[1800,1350,1620,1170],"islandsM":["Plant","Cold","Air","Oasis"],"elementsM":["Water","Cold"]},
+        {"nameM":"Oaktopus","description":"Potbelly + Toe Jammer","birthTimes":[28800,21600,25920,18720],"islandsM":["Plant","Cold","Water"],"elementsM":["Plant","Water"]},
+        {"nameM":"T-Rox","description":"","birthTimes":[28800,21600,25920,18720],"islandsM":["Plant","Air"],"elementsM":["Cold","Earth","Water"]},
+        {"nameM":"Bowgart","description":"","birthTimes":[43200,32400,38880,28080],"islandsM":["Plant","Cold"],"elementsM":["Plant","Water","Cold"]},
+        {"nameM":"Entbrat","description":"","birthTimes":[86400,64800,77760,56160],"islandsM":["Plant"],"elementsM":["Plant","Earth","Water","Cold"]}
+    ]
+    }
+
+]
+}

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity6">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link type="text/css" rel="stylesheet" href="/css/bootstrap.min.css" th:href="@{/css/bootstrap.min.css}" /> 
+    <title>MsmTracker - Home</title>
+</head>
+<body>
+    <!-- HEADER -->
+    <div class="container-fluid text-center" style="padding: .5% 0% 0% .5%;">
+        <div class="row">
+            <div class="col">
+                <a href="/" class="btn btn-outline-secondary">Home</a>
+                <a href="/mlist" class="btn btn-outline-secondary">Monsters</a>
+            </div>
+            <div class="col"></div>
+            <div class="col">
+                <div sec:authorize="isAuthenticated()">
+                    <form th:action="@{/logout}" method="post">
+                        <input type="submit" value="Sign out" class="btn btn-outline-danger"/>
+                    </form>
+                </div>
+                <div sec:authorize="isAnonymous()">
+                    <a href="/login" class="btn btn-success">Sign in</a>
+                </div>
+                <div><span sec:authentication="name"></span></div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MAIN BODY -->
+    <div class="container mb-3">
+        <h1>Sign in</h1>
+    </div>
+
+    <div class="container">
+        <form th:action="@{/login}" method="post">
+            <div class="mb-3">
+                <label for="InputUsername1" class="form-label">Username</label>
+                <input type="text" class="form-control" id="inputText" name="username">
+            </div>
+            <div class="mb-3">
+                <label for="InputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control" id="InputPassword1" name="password">
+            </div>
+            <input type="submit" value="Sign In" class="btn btn-primary"/>
+        </form>
+    </div>
+
+</body>
+</html>
