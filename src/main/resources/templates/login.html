@@ -20,11 +20,13 @@
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" value="Sign out" class="btn btn-outline-danger"/>
                     </form>
+                    <span sec:authentication="name"></span>
                 </div>
                 <div sec:authorize="isAnonymous()">
                     <a href="/login" class="btn btn-success">Sign in</a>
+                    <br>
+                    <span>not signed in</span>
                 </div>
-                <div><span sec:authentication="name"></span></div>
             </div>
         </div>
     </div>

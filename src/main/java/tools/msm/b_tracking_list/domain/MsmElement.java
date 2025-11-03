@@ -37,6 +37,12 @@ public class MsmElement {
         this.nameE = nameE;
     }
 
+     public MsmElement(String nameE, String imgFilePath) {
+        super();
+        this.nameE = nameE;
+        this.imgFilePath = imgFilePath;
+    }
+
     public MsmElement(String nameE, List<MsmIsland> islandsE, List<MsmMonster> monstersE) {
         super();
         this.nameE = nameE;

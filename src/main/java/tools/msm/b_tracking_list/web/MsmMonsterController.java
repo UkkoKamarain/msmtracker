@@ -56,7 +56,7 @@ public class MsmMonsterController {
     ) {
         model.addAttribute("elements", eR.findAll());
         model.addAttribute("islands", iR.findAll());
-        model.addAttribute("mon", mR.findById(monId));
+        model.addAttribute("mon", mR.findById(monId).get());
         return "editmon"; // editmon.html
     }
 

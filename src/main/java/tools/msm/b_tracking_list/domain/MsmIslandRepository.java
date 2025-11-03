@@ -4,7 +4,7 @@ import org.springframework.data.repository.CrudRepository;
 import java.util.List;
 
 public interface MsmIslandRepository extends CrudRepository<MsmIsland, Long> {
-    List<MsmIsland> findByNameI(String nameI);
+    MsmIsland findByNameI(String nameI);
     List<MsmIsland> findByElementsI(List<MsmElement> elementsI);
     List<MsmIsland> findBySeasonal(boolean seasonal);
     List<MsmIsland> findByHatcherTier(byte hatcherTier);

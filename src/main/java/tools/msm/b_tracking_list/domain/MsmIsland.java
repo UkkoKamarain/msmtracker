@@ -50,6 +50,15 @@ public class MsmIsland {
         this.elementsI = elementsI; 
     }
 
+    public MsmIsland(String nameI, byte hatcherTier, boolean seasonal,
+            List<MsmElement> elementsI) {
+        super();
+        this.nameI = nameI;
+        this.hatcherTier = hatcherTier;
+        this.seasonal = seasonal;
+        this.elementsI = elementsI;
+    }
+
     public MsmIsland(String nameI, byte hatcherTier, boolean seasonal, List<MsmMonster> monstersI,
             List<MsmElement> elementsI) {
         super();

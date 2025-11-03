@@ -20,11 +20,13 @@
                     <form th:action="@{/logout}" method="post">
                         <input type="submit" value="Sign out" class="btn btn-outline-danger"/>
                     </form>
+                    <span sec:authentication="name"></span>
                 </div>
                 <div sec:authorize="isAnonymous()">
                     <a href="/login" class="btn btn-outline-success">Sign in</a>
+                    <br>
+                    <span>not signed in</span>
                 </div>
-                <div><span sec:authentication="name"></span></div>
             </div>
         </div>
     </div>
@@ -50,25 +52,35 @@
             <!-- Checkboxeilla listaksi -->
             <div class="mb-3">
                 Islands:<br>
-                <div th:each="i : ${islands}" class="form-check">
-                    <input type="checkbox" th:field="*{islandsM}" th:value="${i.IdIsland}" th:text="' ' + ${i.nameI}">
-                    <br>
+                <div class="row row-cols-4">
+                    <div th:each="i : ${islands}" class="form-check">
+                        <input type="checkbox" th:field="*{islandsM}" th:value="${i.IdIsland}" th:text="' ' + ${i.nameI}">
+                    </div>
+                </div>
+            </div>
+
+            <div class="mb-3">
+                Elements:<br>
+                <div class="row row-cols-4">
+                    <div th:each="e : ${elements}" class="form-check">
+                        <input type="checkbox" th:field="*{elementsM}" th:value="${e.idElement}" th:text="' ' + ${e.nameE}">
+                    </div>
                 </div>
             </div>
             
             <!-- Selectillä listaksi -->
-            <div class="mb-3">
+            <!-- <div class="mb-3">
                 Elements:<br>
                 <select th:field="*{elementsM}" size="5" multiple>
                     <option th:each="e : ${elements}" th:value="${e.idElement}" th:text="${e.nameE}"></option>
                 </select>
-            </div>
+            </div> -->
 
-            <div class="row mb-3">
-                <div class="col-md-1">
+            <div class="mb-3">
+                <div class="mb-1">
                     Times (PTxDxHxMxS):
                 </div>
-                <div class="col">
+                <div>
                     <input type="text" th:field="*{birthTimes}" class="form-control">
                 </div>
             </div>
