@@ -17,7 +17,7 @@ import jakarta.persistence.JoinTable;
 import jakarta.persistence.ManyToMany;
 
 @Entity
-public class MsmMonster {       
+public class MsmMonster {    
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long idMonster;

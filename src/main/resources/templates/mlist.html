@@ -56,7 +56,7 @@
                 <td th:text="${m.getIslandsMNames()}">islands</td>
                 <td th:text="${m.getBirthTimes()}"></td>
                 <td sec:authorize="hasAuthority('ADMIN')">
-                    <a th:href="@{/editMon/{id}(id=${m.idMonster})}" class="btn-sm btn-secondary">Edit</a>
+                    <a th:href="@{/editMon/{id}(id=${m.idMonster})}" class="btn btn-sm btn-secondary">Edit</a>
                 </td>
             </tr>
         </table>

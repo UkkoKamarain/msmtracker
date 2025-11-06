@@ -14,12 +14,15 @@ import org.springframework.context.annotation.Bean;
 
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.module.SimpleModule;
 
 import tools.msm.b_tracking_list.domain.MsmElement;
 import tools.msm.b_tracking_list.domain.MsmElementRepository;
 import tools.msm.b_tracking_list.domain.MsmIsland;
+import tools.msm.b_tracking_list.domain.MsmIslandDeserializer;
 import tools.msm.b_tracking_list.domain.MsmIslandRepository;
 import tools.msm.b_tracking_list.domain.MsmMonster;
+import tools.msm.b_tracking_list.domain.MsmMonsterDeserializer;
 import tools.msm.b_tracking_list.domain.MsmMonsterRepository;
 import tools.msm.b_tracking_list.domain.MsmUser;
 import tools.msm.b_tracking_list.domain.MsmUserRepository;
@@ -58,7 +61,15 @@ public class BTrackingListApplication {
 			log.info("Users inserted.");
 
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.findAndRegisterModules();			
+			mapper.findAndRegisterModules();		
+			
+			SimpleModule monsterModule = new SimpleModule();
+			monsterModule.addDeserializer(MsmMonster.class, new MsmMonsterDeserializer(iR, eR));
+			mapper.registerModule(monsterModule);
+
+			SimpleModule islandModule = new SimpleModule();
+			islandModule.addDeserializer(MsmIsland.class, new MsmIslandDeserializer(eR));
+			mapper.registerModule(islandModule);
 
 			File elementFile = new File("src/main/resources/elements.json");
 			File islandFile = new File("src/main/resources/islands.json");
@@ -87,7 +98,7 @@ public class BTrackingListApplication {
 				log.info("Islands parsed.");
 
 				log.info("Inserting islands.");
-				for (int i = 0; i < eList.size(); i++) {
+				for (int i = 0; i < iList.size(); i++) {
 					iR.save(iList.get(i));
 				}
 				log.info("Islands Inserted.");
@@ -100,7 +111,7 @@ public class BTrackingListApplication {
 				log.info("Monsters parsed.");
 
 				log.info("Inserting monsters.");
-				for (int i = 0; i < eList.size(); i++) {
+				for (int i = 0; i < mList.size(); i++) {
 					mR.save(mList.get(i));
 				}
 				log.info("Monsters inserted.");

@@ -33,14 +33,11 @@
 
     <!-- BODY -->
     <div class="container" th:object="${mon}">
-        <h1>Edit monster <span th:text="${mon.nameM}"></span></h1>
+        <h1>Editing monster: <span th:text="${mon.nameM}"></span></h1>
         <a th:href="@{/deleteMon/{id}(id=*{idMonster})}" class="btn btn-danger">Delete</a>
-
-
-        
     </div>
 
-    <div class="container">
+    <div class="container container-sm">
         <form action="#" th:action="@{/saveMon}" th:object="${mon}" method="post" class="form">
             <div> <input type="hidden" th:field="*{idMonster}"></div>
 
@@ -54,32 +51,34 @@
                 <textarea type="text" th:field="*{description}" class="form-control"></textarea>
             </div>
 
-            <!-- Checkboxeilla listaksi -->
-            <div class="mb-3">
-                Islands:<br>
-                <div class="row row-cols-4">
-                    <div th:each="i : ${islands}" class="form-check">
-                        <input type="checkbox" th:field="*{islandsM}" th:value="${i.IdIsland}" th:text="' ' + ${i.nameI}">
+            <div class="gx-5 p-3">
+                <!-- Checkboxeilla listaksi -->
+                <div class="mb-3">
+                    Islands:<br>
+                    <div class="row justify-content-start border rounded">
+                        <div th:each="i : ${islands}" class="form-check col-3">
+                            <input type="checkbox" th:field="*{islandsM}" th:value="${i.IdIsland}" th:text="' ' + ${i.nameI}">
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <div class="mb-3">
-                Elements:<br>
-                <div class="row row-cols-4">
-                    <div th:each="e : ${elements}" class="form-check">
-                        <input type="checkbox" th:field="*{elementsM}" th:value="${e.idElement}" th:text="' ' + ${e.nameE}">
+                <div class="mb-3">
+                    Elements:<br>
+                    <div class="row justify-content-start border rounded">
+                        <div th:each="e : ${elements}" class="form-check col-3">
+                            <input type="checkbox" th:field="*{elementsM}" th:value="${e.idElement}" th:text="' ' + ${e.nameE}">
+                        </div>
                     </div>
                 </div>
+                
+                <!-- Selectillä listaksi -->
+                <!-- <div class="mb-3">
+                    Elements:<br>
+                    <select th:field="*{elementsM}" size="5" multiple>
+                        <option th:each="e : ${elements}" th:value="${e.idElement}" th:text="${e.nameE}"></option>
+                    </select>
+                </div> -->
             </div>
-            
-            <!-- Selectillä listaksi -->
-            <!-- <div class="mb-3">
-                Elements:<br>
-                <select th:field="*{elementsM}" size="5" multiple>
-                    <option th:each="e : ${elements}" th:value="${e.idElement}" th:text="${e.nameE}"></option>
-                </select>
-            </div> -->
 
             <div class="mb-3">
                 <div class="mb-1">
@@ -90,7 +89,7 @@
                 </div>
             </div>
 
-            <div class="row mb-3">
+            <div class="mb-3">
                 <input type="submit" value="Save" class="btn btn-success"/>
             </div>
         </form>
