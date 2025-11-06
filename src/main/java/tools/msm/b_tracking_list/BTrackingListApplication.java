@@ -61,23 +61,27 @@ public class BTrackingListApplication {
 			log.info("Users inserted.");
 
 			ObjectMapper mapper = new ObjectMapper();
-			mapper.findAndRegisterModules();		
-			
+			mapper.findAndRegisterModules();
+
 			SimpleModule monsterModule = new SimpleModule();
-			monsterModule.addDeserializer(MsmMonster.class, new MsmMonsterDeserializer(iR, eR));
+			monsterModule.addDeserializer(
+					MsmMonster.class,
+					new MsmMonsterDeserializer(iR, eR));
 			mapper.registerModule(monsterModule);
 
 			SimpleModule islandModule = new SimpleModule();
-			islandModule.addDeserializer(MsmIsland.class, new MsmIslandDeserializer(eR));
+			islandModule.addDeserializer(
+					MsmIsland.class,
+					new MsmIslandDeserializer(eR));
 			mapper.registerModule(islandModule);
 
-			File elementFile = new File("src/main/resources/elements.json");
-			File islandFile = new File("src/main/resources/islands.json");
-			File monsterFile = new File("src/main/resources/monsters.json");
+			File elementFile = new File("./src/main/resources/elements.json");
+			File islandFile = new File("./src/main/resources/islands.json");
+			File monsterFile = new File("./src/main/resources/monsters.json");
 
 			log.info("Trying to parse files:");
 			try {
-				// log.info("Reading elements.");
+				// ELEMENTS
 				log.info("Parsing elements.");
 				List<MsmElement> eList = mapper.readValue(elementFile, new TypeReference<List<MsmElement>>() {
 				});
@@ -89,12 +93,10 @@ public class BTrackingListApplication {
 				}
 				log.info("Elements inserted.");
 
-				// log.info("Reading islands.");
-				// JsonReader iReader = new JsonReader(new FileReader(islandFile));
+				// ISLANDS
 				log.info("Parsing islands.");
 				List<MsmIsland> iList = mapper.readValue(islandFile, new TypeReference<List<MsmIsland>>() {
 				});
-				// iReader.close();
 				log.info("Islands parsed.");
 
 				log.info("Inserting islands.");
@@ -103,11 +105,10 @@ public class BTrackingListApplication {
 				}
 				log.info("Islands Inserted.");
 
-				// log.info("Reading monsters.");
-				// JsonReader mReader = new JsonReader(new FileReader(monsterFile));
+				// MONSTERS
 				log.info("Parsing monsters.");
-				List<MsmMonster> mList = mapper.readValue(monsterFile, new TypeReference<List<MsmMonster>>(){});
-				// mReader.close();
+				List<MsmMonster> mList = mapper.readValue(monsterFile, new TypeReference<List<MsmMonster>>() {
+				});
 				log.info("Monsters parsed.");
 
 				log.info("Inserting monsters.");
