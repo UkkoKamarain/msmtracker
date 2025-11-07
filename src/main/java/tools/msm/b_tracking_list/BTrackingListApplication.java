@@ -3,6 +3,7 @@ package tools.msm.b_tracking_list;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
+import java.io.InputStream;
 import java.util.List;
 import org.slf4j.Logger;
 
@@ -75,15 +76,19 @@ public class BTrackingListApplication {
 					new MsmIslandDeserializer(eR));
 			mapper.registerModule(islandModule);
 
-			File elementFile = new File("src/main/resources/elements.json");
-			File islandFile = new File("src/main/resources/islands.json");
-			File monsterFile = new File("src/main/resources/monsters.json");
+			// File elementFile = new File("src/main/resources/elements.json");
+			// File islandFile = new File("src/main/resources/islands.json");
+			// File monsterFile = new File("src/main/resources/monsters.json");
 
 			log.info("Trying to parse files:");
 			try {
+				InputStream eInputStream = BTrackingListApplication.class.getResourceAsStream("/elements.json");
+				InputStream iInputStream = BTrackingListApplication.class.getResourceAsStream("/islands.json");
+				InputStream mInputStream = BTrackingListApplication.class.getResourceAsStream("/monsters.json");
+
 				// ELEMENTS
 				log.info("Parsing elements.");
-				List<MsmElement> eList = mapper.readValue(elementFile, new TypeReference<List<MsmElement>>() {
+				List<MsmElement> eList = mapper.readValue(eInputStream, new TypeReference<List<MsmElement>>() {
 				});
 				log.info("Elements parsed.");
 
@@ -95,7 +100,7 @@ public class BTrackingListApplication {
 
 				// ISLANDS
 				log.info("Parsing islands.");
-				List<MsmIsland> iList = mapper.readValue(islandFile, new TypeReference<List<MsmIsland>>() {
+				List<MsmIsland> iList = mapper.readValue(iInputStream, new TypeReference<List<MsmIsland>>() {
 				});
 				log.info("Islands parsed.");
 
@@ -107,7 +112,7 @@ public class BTrackingListApplication {
 
 				// MONSTERS
 				log.info("Parsing monsters.");
-				List<MsmMonster> mList = mapper.readValue(monsterFile, new TypeReference<List<MsmMonster>>() {
+				List<MsmMonster> mList = mapper.readValue(mInputStream, new TypeReference<List<MsmMonster>>() {
 				});
 				log.info("Monsters parsed.");
 
