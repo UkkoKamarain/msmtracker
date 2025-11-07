@@ -75,9 +75,9 @@ public class BTrackingListApplication {
 					new MsmIslandDeserializer(eR));
 			mapper.registerModule(islandModule);
 
-			File elementFile = new File("b_tracking_list/src/main/resources/elements.json");
-			File islandFile = new File("b_tracking_list/src/main/resources/islands.json");
-			File monsterFile = new File("b_tracking_list/src/main/resources/monsters.json");
+			File elementFile = new File("src/main/resources/elements.json");
+			File islandFile = new File("src/main/resources/islands.json");
+			File monsterFile = new File("src/main/resources/monsters.json");
 
 			log.info("Trying to parse files:");
 			try {
