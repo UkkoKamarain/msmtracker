@@ -1,6 +1,5 @@
 package tools.msm.b_tracking_list;
 
-import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.InputStream;
@@ -76,15 +75,16 @@ public class BTrackingListApplication {
 					new MsmIslandDeserializer(eR));
 			mapper.registerModule(islandModule);
 
-			// File elementFile = new File("src/main/resources/elements.json");
-			// File islandFile = new File("src/main/resources/islands.json");
-			// File monsterFile = new File("src/main/resources/monsters.json");
-
 			log.info("Trying to parse files:");
 			try {
+				log.info("Getting Files");
 				InputStream eInputStream = BTrackingListApplication.class.getResourceAsStream("/elements.json");
+				log.info("Elements found");
 				InputStream iInputStream = BTrackingListApplication.class.getResourceAsStream("/islands.json");
+				log.info("Islands found");
 				InputStream mInputStream = BTrackingListApplication.class.getResourceAsStream("/monsters.json");
+				log.info("Monsters found");
+
 
 				// ELEMENTS
 				log.info("Parsing elements.");

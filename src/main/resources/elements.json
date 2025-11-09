@@ -4,5 +4,18 @@
     {"nameE":"Cold","imgFilePath":""},
     {"nameE":"Plant","imgFilePath":""},
     {"nameE":"Air","imgFilePath":""},
-    {"nameE":"Fire","imgFilePath":""}
+    {"nameE":"Fire","imgFilePath":""},
+    {"nameE":"Ethereal","imgFilePath":""},
+    {"nameE":"Plasma","imgFilePath":""},
+    {"nameE":"Shadow","imgFilePath":""},
+    {"nameE":"Mech","imgFilePath":""},
+    {"nameE":"Crystal","imgFilePath":""},
+    {"nameE":"Poison","imgFilePath":""},
+    {"nameE":"Mythical","imgFilePath":""},
+    {"nameE":"Light","imgFilePath":""},
+    {"nameE":"Faerie","imgFilePath":""},
+    {"nameE":"Psychic","imgFilePath":""},
+    {"nameE":"Bone","imgFilePath":""},
+    {"nameE":"Seasonal","imgFilePath":""},
+    {"nameE":"Dream","imgFilePath":""}
 ]
