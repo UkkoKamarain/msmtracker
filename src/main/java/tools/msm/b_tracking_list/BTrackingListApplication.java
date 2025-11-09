@@ -51,7 +51,7 @@ public class BTrackingListApplication {
 
 			// Logins
 			log.info("Creating users.");
-			MsmUser user1 = new MsmUser("user", "ea/u5KKXV6EVyZKETumONM7p5hqQvRqcfNNj/Z5513OS2E.ZCoC", "USER");
+			MsmUser user1 = new MsmUser("user", "$2a$12$X.VyKf7JQdEDzN01rl5T6ep7els29VT.PaTHoN08/qj6j3XsVrdTK", "USER");
 			MsmUser user2 = new MsmUser("admin", "$2a$12$N3BS0FKBUnzdg80TcsXKr.3k3AQlx3zwcmNA8T7z7d/gILLQF8KTi",
 					"ADMIN");
 
